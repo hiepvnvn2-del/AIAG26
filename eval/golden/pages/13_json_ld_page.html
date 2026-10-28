@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<title>JSON-LD Structured Data</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Hosting Packages",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Product",
+        "name": "Web Hosting Starter",
+        "description": "Basic shared hosting — 1 website, 10GB SSD",
+        "offers": {
+          "@type": "Offer",
+          "price": "189000",
+          "priceCurrency": "VND",
+          "availability": "https://schema.org/InStock",
+          "priceValidUntil": "2027-12-31"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Product",
+        "name": "Web Hosting Business",
+        "description": "Business shared hosting — 20 websites, 60GB SSD",
+        "offers": {
+          "@type": "Offer",
+          "price": "560000",
+          "priceCurrency": "VND",
+          "availability": "https://schema.org/InStock"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "Product",
+        "name": "Cloud VPS",
+        "description": "Managed VPS — 4GB RAM, 50GB NVMe",
+        "offers": {
+          "@type": "Offer",
+          "price": "780000",
+          "priceCurrency": "VND",
+          "availability": "https://schema.org/LimitedAvailability"
+        }
+      }
+    }
+  ]
+}
+</script>
+<style>
+  body{font-family:system-ui,sans-serif;background:#fff;color:#1e293b;padding:24px}
+  .card{border:1px solid #e2e8f0;border-radius:12px;padding:20px;margin-bottom:16px;max-width:600px}
+  .price{font-size:24px;font-weight:700;color:#0f766e;margin:8px 0}
+  .muted{color:#64748b;font-size:13px}
+</style>
+</head>
+<body>
+  <h1>Bảng giá dịch vụ</h1>
+  <div class="card">
+    <div><b>Web Hosting Starter</b></div>
+    <div class="price">189.000đ/tháng</div>
+    <div class="muted">1 website · 10GB SSD · Còn hàng</div>
+  </div>
+  <div class="card">
+    <div><b>Web Hosting Business</b></div>
+    <div class="price">560.000đ/tháng</div>
+    <div class="muted">20 website · 60GB SSD · Còn hàng</div>
+  </div>
+  <div class="card">
+    <div><b>Cloud VPS</b></div>
+    <div class="price">780.000đ/tháng</div>
+    <div class="muted">4GB RAM · 50GB NVMe · Sắp hết</div>
+  </div>
+</body>
+</html>

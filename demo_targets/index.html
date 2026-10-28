@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<title>Demo Targets — RPA 2.0</title>
+<style>
+  body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#0f172a;color:#e2e8f0;margin:0;padding:40px}
+  h1{color:#fff;font-size:22px}
+  a{display:block;background:#1e293b;border:1px solid #334155;border-radius:12px;padding:16px 18px;margin-bottom:12px;color:#38bdf8;text-decoration:none;font-weight:600;max-width:640px}
+  a:hover{background:#243044}
+  .muted{color:#94a3b8;font-size:13px;font-weight:400;margin-top:6px}
+</style>
+</head>
+<body>
+  <h1>RPA 2.0 — Local Demo Targets</h1>
+  <p class="muted" style="color:#94a3b8;max-width:640px">
+    Ba trang mock chạy offline, đảm bảo demo trên sân khấu không phụ thuộc Wi-Fi hay Cloudflare.
+  </p>
+  <a href="/demo/competitor_a.html">Competitor A — có popup modal chặn
+    <div class="muted">Worker phải tự đóng modal trước khi trích xuất giá.</div></a>
+  <a href="/demo/competitor_b.html">Competitor B — vô hạn scroll / phân trang
+    <div class="muted">Worker phải SCROLL_DOWN để lộ toàn bộ danh sách.</div></a>
+  <a href="/demo/admin.html">Internal Shop Admin — trang quản trị nội bộ
+    <div class="muted">Worker điền giá mới nhưng DỪNG trước nút Lưu, chờ HITL.</div></a>
+</body>
+</html>

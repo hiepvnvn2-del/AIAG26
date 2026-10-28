@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Mat Bao — Hosting WordPress (Vô hạn scroll)</title>
+<style>
+  body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#f8fafc;color:#0f172a;margin:0}
+  header{background:#b91c1c;color:#fff;padding:14px 24px;display:flex;align-items:center;gap:16px}
+  main{padding:24px;max-width:960px;margin:0 auto}
+  .card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+  .price{font-size:26px;font-weight:700;color:#b91c1c}
+  .badge{display:inline-block;border-radius:999px;padding:2px 10px;font-size:12px;margin-left:8px;color:#fff}
+  .in{background:#16a34a}.out{background:#64748b}.low{background:#d97706}
+  .muted{color:#64748b;font-size:13px}
+  .sentinel{text-align:center;padding:24px;color:#94a3b8;font-size:13px}
+  .pager{display:flex;gap:10px;justify-content:center;align-items:center;margin:18px 0}
+  .pager button{border:1px solid #cbd5e1;background:#fff;border-radius:10px;padding:8px 16px;font-weight:600;cursor:pointer}
+  .pager button:hover{background:#f1f5f9}
+  .pager .page{font-size:13px;color:#475569;min-width:70px;text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <h1 style="margin:0;font-size:18px">Mat Bao</h1>
+  <span style="font-size:13px;opacity:.85">Hosting giá rẻ — trang 1..N vô hạn</span>
+</header>
+<main>
+  <div id="list"></div>
+  <div class="sentinel" id="sentinel">Cuộn xuống để tải thêm…</div>
+</main>
+
+<script>
+  // Injected dataset so the page is fully self-contained (no external API).
+  const DATASET = [
+    { code:'HOSTING-WP-STD', name:'Hosting WordPress Standard', price:'199.000đ/tháng', status:'in' },
+    { code:'HOSTING-WP-PRO', name:'Hosting WordPress Pro',       price:'$9.90/tháng',   status:'in' },
+    { code:'HOSTING-WP-BUS', name:'Hosting WordPress Business',   price:'199k/tháng',    status:'low' },
+    { code:'HOSTING-WP-BIZ', name:'Hosting WordPress Business+',  price:'690.000đ/tháng',status:'out' },
+    { code:'HOSTING-WP-ENT', name:'Hosting WordPress Enterprise', price:'£15.00/tháng',  status:'in' },
+    { code:'HOSTING-CDN',     name:'Gói CDN tăng tốc',            price:'79.000đ/tháng', status:'in' },
+    { code:'HOSTING-BK',      name:'Backup ngoài 200GB',           price:'45k/tháng',     status:'low' },
+    { code:'HOSTING-MAIL',    name:'Email doanh nghiệp 50 user',  price:'99.000đ/tháng', status:'out' },
+  ];
+  const STATUS = { in:['Còn hàng','in'], out:['Hết hàng','out'], low:['Sắp hết','low'] };
+  let i = 0;
+
+  function renderChunk(){
+    const frag = document.createDocumentFragment();
+    const next = DATASET.slice(i, i+3); i += 3;
+    next.forEach(item=>{
+      const [label, cls] = STATUS[item.status];
+      const div = document.createElement('div');
+      div.className = 'card';
+      div.innerHTML = `
+        <div><b>${item.name}</b>
+          <span class="badge ${cls}" data-code="${item.code}">${label}</span></div>
+        <div class="price">${item.price}</div>
+        <div class="muted">Mã: <span class="mono">${item.code}</span></div>`;
+      frag.appendChild(div);
+    });
+    document.getElementById('list').appendChild(frag);
+    if(i >= DATASET.length) document.getElementById('sentinel').textContent = '— Đã tải hết —';
+  }
+
+  renderChunk();
+  // Infinite scroll: observer on sentinel triggers next chunk (like a real SPA).
+  new IntersectionObserver((entries)=>{
+    if(entries[0].isIntersecting) renderChunk();
+  }, { rootMargin: '200px' }).observe(document.getElementById('sentinel'));
+  // Explicit pagination as a second, reliable path for the worker to exercise.
+  const pager = document.createElement('div');
+  pager.className = 'pager';
+  pager.innerHTML = `
+    <button id="pg-prev">◀ Trang trước</button>
+    <span class="page" id="pg-info">1 / 1</span>
+    <button id="pg-next">Trang sau ▶</button>`;
+  document.querySelector('main').appendChild(pager);
+  let page = 1;
+  const refresh = ()=>{
+    document.getElementById('pg-info').textContent = `${page} / 1`;
+    document.getElementById('pg-prev').disabled = page <= 1;
+    document.getElementById('pg-next').disabled = i >= DATASET.length;
+  };
+  document.getElementById('pg-prev').onclick = ()=>{ if(page>1){ page--; refresh(); } };
+  document.getElementById('pg-next').onclick = ()=>{
+    if(i < DATASET.length){ renderChunk(); page++; refresh(); }
+  };
+  refresh();
+</script>
+</body>
+</html>

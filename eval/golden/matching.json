@@ -1,0 +1,62 @@
+[
+  {
+    "competitor_product": {
+      "name": "Hosting WordPress Standard",
+      "price_vnd": 250000,
+      "specs": {"ram": "2GB", "ssd": "10GB", "websites": 1}
+    },
+    "expected_sku": "HOSTING-WP-STD",
+    "min_confidence": 0.8,
+    "description": "Khớp chính xác tên và thông số gói Standard"
+  },
+  {
+    "competitor_product": {
+      "name": "Gói Starter Cơ Bản",
+      "price_vnd": 199000,
+      "specs": {"ram": "2GB", "ssd": "10GB"}
+    },
+    "expected_sku": "HOSTING-WP-STD",
+    "min_confidence": 0.7,
+    "description": "Khớp phân khúc Starter và specs RAM/SSD gói Standard"
+  },
+  {
+    "competitor_product": {
+      "name": "Cloud Hosting Business Pro",
+      "price_vnd": 590000,
+      "specs": {"ram": "4GB", "ssd": "60GB", "websites": 20}
+    },
+    "expected_sku": "HOSTING-WP-BUS",
+    "min_confidence": 0.8,
+    "description": "Khớp phân khúc Business và specs gói Business"
+  },
+  {
+    "competitor_product": {
+      "name": "Gói Enterprise Doanh Nghiệp Cấp Cao",
+      "price_vnd": 650000,
+      "specs": {"ram": "4GB", "ssd": "60GB"}
+    },
+    "expected_sku": "HOSTING-WP-BUS",
+    "min_confidence": 0.7,
+    "description": "Khớp phân khúc Enterprise sang gói Business"
+  },
+  {
+    "competitor_product": {
+      "name": "Gói Tiêu Chuẩn 1",
+      "price_vnd": 220000,
+      "specs": {}
+    },
+    "expected_sku": "HOSTING-WP-STD",
+    "min_confidence": 0.5,
+    "description": "Chỉ khớp keyword phân khúc, không có specs chi tiết"
+  },
+  {
+    "competitor_product": {
+      "name": "Gói Cao Cấp 3",
+      "price_vnd": 580000,
+      "specs": {}
+    },
+    "expected_sku": "HOSTING-WP-BUS",
+    "min_confidence": 0.5,
+    "description": "Chỉ khớp keyword phân khúc cao cấp sang Business"
+  }
+]

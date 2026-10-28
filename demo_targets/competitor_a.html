@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PA Vietnam — Hosting WordPress</title>
+<style>
+  body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#0f172a;color:#e2e8f0;margin:0}
+  header{background:#1e293b;padding:14px 24px;border-bottom:1px solid #334155;display:flex;align-items:center;gap:16px}
+  header h1{font-size:18px;margin:0;color:#fff}
+  main{padding:24px;max-width:960px;margin:0 auto}
+  .card{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:16px;margin-bottom:16px}
+  .price{font-size:28px;font-weight:700;color:#38bdf8}
+  .badge{display:inline-block;background:#059669;color:#fff;border-radius:999px;padding:2px 10px;font-size:12px;margin-left:8px}
+  .muted{color:#94a3b8;font-size:13px}
+  /* Annoying popup modal */
+  .modal-bg{position:fixed;inset:0;background:rgba(2,6,23,.78);display:flex;align-items:center;justify-content:center;z-index:100}
+  .modal{background:#fff;color:#0f172a;border-radius:16px;padding:28px;max-width:420px;width:90%;box-shadow:0 25px 60px rgba(0,0,0,.4)}
+  .modal h2{margin:0 0 8px;font-size:20px}
+  .modal p{color:#475569;font-size:14px;line-height:1.5}
+  .modal button{background:#2563eb;color:#fff;border:0;border-radius:10px;padding:10px 16px;font-weight:600;cursor:pointer;margin-right:8px}
+  .modal button.ghost{background:#e2e8f0;color:#0f172a}
+  .modal .close{position:absolute;top:14px;right:16px;background:transparent;border:0;font-size:22px;cursor:pointer;color:#64748b}
+  .modal-wrap{position:relative}
+</style>
+</head>
+<body>
+<header>
+  <h1>PA Vietnam</h1>
+  <span class="muted">Hosting WordPress / VPS / Tên miền</span>
+</header>
+<main>
+  <div class="card">
+    <div>Hosting WordPress <b>Standard</b> <span class="badge">Còn hàng</span></div>
+    <div class="price">250.000<sup>đ</sup>/tháng</div>
+    <div class="muted">1 site · 10 SSD · SSL miễn phí · Backup hàng tuần</div>
+  </div>
+  <div class="card">
+    <div>Hosting WordPress <b>Pro</b> <span class="badge">Còn hàng</span></div>
+    <div class="price">390.000<sup>đ</sup>/tháng</div>
+    <div class="muted">5 site · 30 SSD · SSL miễn phí · Backup hàng ngày</div>
+  </div>
+  <div class="card">
+    <div>Hosting WordPress <b>Business</b> <span class="badge" style="background:#d97706">Sắp hết</span></div>
+    <div class="price">690.000<sup>đ</sup>/tháng</div>
+    <div class="muted">20 site · 60 SSD · SSL miễn phí · Backup realtime</div>
+  </div>
+</main>
+
+<!-- Annoying popup modal — worker must dismiss before extraction -->
+<div class="modal-bg" id="promoModal">
+  <div class="modal modal-wrap">
+    <button class="close" id="promoClose" aria-label="Close">×</button>
+    <h2>🎉 Ưu đãi 50% hosting!</h2>
+    <p>Nhập email để nhận mã giảm giá <b>PA50</b> áp dụng cho tất cả gói Hosting WordPress trong 24 giờ tới.</p>
+    <input id="promoEmail" type="email" placeholder="email@example.com"
+      style="width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;margin-bottom:12px;box-sizing:border-box"/>
+    <button id="promoSubmit">Nhận mã ngay</button>
+    <button class="ghost" id="promoLater">Để sau</button>
+  </div>
+</div>
+
+<script>
+  // Modal re-appears if closed via X but not via buttons (annoying, realistic)
+  document.getElementById('promoClose').onclick = () => {
+    document.getElementById('promoModal').style.display = 'none';
+  };
+  document.getElementById('promoLater').onclick = () => {
+    document.getElementById('promoModal').style.display = 'none';
+  };
+  document.getElementById('promoSubmit').onclick = () => {
+    document.getElementById('promoModal').style.display = 'none';
+  };
+</script>
+</body>
+</html>

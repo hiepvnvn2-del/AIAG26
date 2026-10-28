@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bảng Giá Hosting & Cloud VPS — Demo Tabs & Toggles</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: #f8fafc; padding: 32px; }
+    .header-bar { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 16px; margin-bottom: 24px; }
+    .nav-actions button { background: #334155; color: #f8fafc; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-left: 8px; }
+    
+    .tab-container { display: flex; gap: 12px; margin-bottom: 20px; }
+    .tab-btn { background: #1e293b; color: #94a3b8; border: 1px solid #334155; padding: 10px 24px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; }
+    .tab-btn.active { background: #2563eb; color: #ffffff; border-color: #3b82f6; }
+
+    .toggle-container { display: flex; gap: 8px; align-items: center; margin-bottom: 28px; background: #1e293b; display: inline-flex; padding: 4px; border-radius: 8px; }
+    .cycle-btn { background: transparent; color: #94a3b8; border: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer; font-weight: 500; }
+    .cycle-btn.active { background: #38bdf8; color: #0f172a; font-weight: 700; }
+
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 900px; }
+    .pricing-card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; }
+    .card-title { font-size: 20px; font-weight: 700; color: #f1f5f9; margin-bottom: 8px; }
+    .price-wrap { margin: 16px 0; }
+    .price { font-size: 28px; font-weight: 800; color: #38bdf8; }
+    .original-price { font-size: 15px; color: #94a3b8; text-decoration: line-through; margin-left: 8px; }
+    .specs-list { list-style: none; padding: 0; margin: 16px 0; color: #cbd5e1; font-size: 14px; }
+    .specs-list li { margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .btn-buy { background: #10b981; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; text-align: center; }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar with banned buttons that must NOT be clicked as tabs -->
+  <div class="header-bar">
+    <h2>CloudPlatform Services</h2>
+    <div class="nav-actions">
+      <button>Login</button>
+      <button>Sign In</button>
+      <button>Giỏ hàng (0)</button>
+    </div>
+  </div>
+
+  <!-- Category Tabs -->
+  <div class="tab-container" role="tablist">
+    <button class="tab-btn active" role="tab" aria-selected="true" id="tab-web" onclick="switchCategory('Websites')">Websites</button>
+    <button class="tab-btn" role="tab" aria-selected="false" id="tab-vps" onclick="switchCategory('VPS hosting')">VPS hosting</button>
+  </div>
+
+  <!-- Cycle Toggles -->
+  <div class="toggle-container" role="group">
+    <button class="cycle-btn active" id="toggle-monthly" onclick="switchCycle('month')">Hàng tháng</button>
+    <button class="cycle-btn" id="toggle-yearly" onclick="switchCycle('year')">Hàng năm (Tiết kiệm 20%)</button>
+  </div>
+
+  <!-- Pricing Area (Content loads asynchronously after 300ms) -->
+  <div id="pricing-container" class="pricing-grid">
+    <!-- Populated by JavaScript -->
+  </div>
+
+  <script>
+    const DATA = {
+      "Websites": {
+        "month": [
+          {
+            name: "Hosting WordPress Starter",
+            price: "99.000đ/tháng",
+            origPrice: "",
+            specs: ["1 Website WordPress", "10GB NVMe SSD", "Miễn phí SSL", "Băng thông không giới hạn"],
+            actionText: "Mua ngay"
+          },
+          {
+            name: "Hosting WordPress Pro",
+            price: "199.000đ/tháng",
+            origPrice: "",
+            specs: ["Không giới hạn Website", "30GB NVMe SSD", "Sao lưu hàng ngày", "RAM 2GB, 2 vCPU"],
+            actionText: "Thanh toán"
+          }
+        ],
+        "year": [
+          {
+            name: "Hosting WordPress Starter",
+            price: "950.400đ/năm",
+            origPrice: "1.188.000đ/năm",
+            specs: ["1 Website WordPress", "10GB NVMe SSD", "Miễn phí SSL", "Tiết kiệm 20% khi trả năm"],
+            actionText: "Mua ngay"
+          },
+          {
+            name: "Hosting WordPress Pro",
+            price: "1.910.400đ/năm",
+            origPrice: "2.388.000đ/năm",
+            specs: ["Không giới hạn Website", "30GB NVMe SSD", "Sao lưu hàng ngày", "RAM 2GB, 2 vCPU"],
+            actionText: "Thanh toán"
+          }
+        ]
+      },
+      "VPS hosting": {
+        "month": [
+          {
+            name: "Cloud VPS Basic",
+            price: "150.000đ/tháng",
+            origPrice: "",
+            specs: ["2 vCPU Cores", "2GB RAM", "30GB NVMe SSD", "1 Gbps Port", "Dedicated IPv4"],
+            actionText: "Đặt hàng"
+          },
+          {
+            name: "Cloud VPS Pro",
+            price: "350.000đ/tháng",
+            origPrice: "",
+            specs: ["4 vCPU Cores", "4GB RAM", "80GB NVMe SSD", "1 Gbps Port", "Dedicated IPv4"],
+            actionText: "Mua ngay"
+          }
+        ],
+        "year": [
+          {
+            name: "Cloud VPS Basic",
+            price: "1.440.000đ/năm",
+            origPrice: "1.800.000đ/năm",
+            specs: ["2 vCPU Cores", "2GB RAM", "30GB NVMe SSD", "1 Gbps Port", "Dedicated IPv4"],
+            actionText: "Đặt hàng"
+          },
+          {
+            name: "Cloud VPS Pro",
+            price: "3.360.000đ/năm",
+            origPrice: "4.200.000đ/năm",
+            specs: ["4 vCPU Cores", "4GB RAM", "80GB NVMe SSD", "1 Gbps Port", "Dedicated IPv4"],
+            actionText: "Thanh toán"
+          }
+        ]
+      }
+    };
+
+    let currentCategory = "Websites";
+    let currentCycle = "month";
+
+    function renderPricing() {
+      const container = document.getElementById("pricing-container");
+      // Simulate asynchronous network / JS render delay of 300ms
+      container.innerHTML = "<div style='color: #94a3b8; padding: 20px;'>Đang tải dữ liệu...</div>";
+      
+      setTimeout(() => {
+        const items = (DATA[currentCategory] && DATA[currentCategory][currentCycle]) || [];
+        container.innerHTML = items.map(item => `
+          <div class="pricing-card">
+            <div>
+              <div class="card-title">${item.name}</div>
+              <div class="price-wrap">
+                <span class="price">${item.price}</span>
+                ${item.origPrice ? `<span class="original-price">${item.origPrice}</span>` : ''}
+              </div>
+              <ul class="specs-list">
+                ${item.specs.map(s => `<li>✓ ${s}</li>`).join('')}
+              </ul>
+            </div>
+            <button class="btn-buy">${item.actionText}</button>
+          </div>
+        `).join('');
+      }, 300);
+    }
+
+    function switchCategory(cat) {
+      if (currentCategory === cat) return;
+      currentCategory = cat;
+      document.getElementById("tab-web").classList.toggle("active", cat === "Websites");
+      document.getElementById("tab-web").setAttribute("aria-selected", cat === "Websites" ? "true" : "false");
+      document.getElementById("tab-vps").classList.toggle("active", cat === "VPS hosting");
+      document.getElementById("tab-vps").setAttribute("aria-selected", cat === "VPS hosting" ? "true" : "false");
+      renderPricing();
+    }
+
+    function switchCycle(cy) {
+      if (currentCycle === cy) return;
+      currentCycle = cy;
+      document.getElementById("toggle-monthly").classList.toggle("active", cy === "month");
+      document.getElementById("toggle-yearly").classList.toggle("active", cy === "year");
+      renderPricing();
+    }
+
+    // Initial render
+    renderPricing();
+  </script>
+</body>
+</html>

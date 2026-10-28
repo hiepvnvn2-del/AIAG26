@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<title>Login Required</title>
+<style>
+  body{font-family:system-ui,sans-serif;background:#f8fafc;min-height:100vh;display:flex;align-items:center;justify-content:center}
+  .box{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:40px;width:360px;text-align:center;box-shadow:0 4px 24px rgba(0,0,0,.08)}
+  h2{margin:0 0 8px;font-size:22px}
+  p{color:#64748b;font-size:14px;margin:0 0 24px}
+  input{width:100%;padding:10px;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:12px;box-sizing:border-box;font-size:15px}
+  button{width:100%;padding:12px;background:#2563eb;color:#fff;border:0;border-radius:8px;font-weight:600;font-size:15px;cursor:pointer}
+  .lock{font-size:40px;margin-bottom:16px}
+</style>
+</head>
+<body>
+  <div class="box">
+    <div class="lock">🔒</div>
+    <h2>Đăng nhập để xem giá</h2>
+    <p>Bảng giá dành riêng cho đại lý và doanh nghiệp. Vui lòng đăng nhập để tiếp tục.</p>
+    <input type="email" placeholder="Email" id="email"/>
+    <input type="password" placeholder="Mật khẩu" id="pass"/>
+    <button onclick="alert('Demo: login disabled')">Đăng nhập</button>
+  </div>
+</body>
+</html>

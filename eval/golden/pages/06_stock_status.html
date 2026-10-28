@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<title>StockStatus — Trạng thái kho</title>
+<style>
+  body{font-family:system-ui,sans-serif;background:#fff;color:#1e293b;padding:24px}
+  .card{border:1px solid #e2e8f0;border-radius:12px;padding:20px;margin-bottom:16px;max-width:600px}
+  .price{font-size:24px;font-weight:700;color:#0f766e;margin:8px 0}
+  .badge{display:inline-block;border-radius:999px;padding:3px 12px;font-size:12px;font-weight:600}
+  .in{background:#d1fae5;color:#065f46}
+  .out{background:#fee2e2;color:#991b1b}
+  .low{background:#fef3c7;color:#92400e}
+  .muted{color:#64748b;font-size:13px;margin-top:6px}
+</style>
+</head>
+<body>
+  <h1>Kiểm tra tình trạng kho</h1>
+
+  <div class="card">
+    <div><b>Hosting Standard</b> <span class="badge in">Còn hàng</span></div>
+    <div class="price">250.000đ/tháng</div>
+    <div class="muted">Sẵn sàng kích hoạt ngay</div>
+  </div>
+
+  <div class="card">
+    <div><b>VPS 4GB RAM</b> <span class="badge out">Hết hàng</span></div>
+    <div class="price">450.000đ/tháng</div>
+    <div class="muted">Tạm hết — Đăng ký nhận thông báo</div>
+  </div>
+
+  <div class="card">
+    <div><b>Dedicated Pro</b> <span class="badge low">Sắp hết</span></div>
+    <div class="price">1.200.000đ/tháng</div>
+    <div class="muted">Chỉ còn 2 server</div>
+  </div>
+
+  <div class="card">
+    <div><b>Cloud Enterprise</b> <span class="badge low">Low stock</span></div>
+    <div class="price">2.500.000đ/tháng</div>
+    <div class="muted">Few units left</div>
+  </div>
+
+  <div class="card">
+    <div><b>Shared Economy</b> <span class="badge in">Available</span></div>
+    <div class="price">99.000đ/tháng</div>
+    <div class="muted">Unlimited activation</div>
+  </div>
+
+  <div class="card">
+    <div><b>GPU Server</b> <span class="badge out">Out of stock</span></div>
+    <div class="price">5.000.000đ/tháng</div>
+    <div class="muted">Sold out — coming Q2</div>
+  </div>
+</body>
+</html>

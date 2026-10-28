@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Internal Shop — Admin Dashboard</title>
+<style>
+  body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#f1f5f9;color:#0f172a;margin:0}
+  header{background:#0f172a;color:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+  main{padding:24px;max-width:1000px;margin:0 auto}
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+  th,td{padding:12px 14px;text-align:left;border-bottom:1px solid #e2e8f0;font-size:14px}
+  th{background:#f8fafc;font-weight:600;color:#475569;text-transform:uppercase;font-size:11px;letter-spacing:.04em}
+  input[type=number]{width:110px;padding:6px 8px;border:1px solid #cbd5e1;border-radius:8px;box-sizing:border-box}
+  .save{background:#16a34a;color:#fff;border:0;border-radius:10px;padding:10px 20px;font-weight:700;cursor:pointer;font-size:14px}
+  .save:hover{background:#15803d}
+  .mono{font-family:ui-monospace,Menlo,Consolas,monospace}
+  .muted{color:#64748b;font-size:12px}
+  .toast{position:fixed;right:24px;bottom:24px;background:#16a34a;color:#fff;padding:12px 18px;border-radius:10px;font-weight:600;display:none}
+  .warn{background:#fff7ed;border:1px solid #fdba74;color:#9a3412;padding:12px 14px;border-radius:10px;font-size:13px;margin-bottom:16px}
+</style>
+</head>
+<body>
+<header>
+  <h1 style="margin:0;font-size:18px">Internal Shop — Admin</h1>
+  <span class="muted" style="color:#94a3b8;font-size:12px">Nội bộ · không được sửa khi chưa có phê duyệt</span>
+</header>
+<main>
+  <div class="warn">
+    ⚠️ Thay đổi giá ở đây có hiệu lực ngay với khách hàng. Chỉ bấm <b>Lưu thay đổi</b> sau khi HITL gate đã được phê duyệt.
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Mã</th><th>Sản phẩm</th><th>Giá hiện tại</th><th>Giá mới (VND)</th><th>Thao tác</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="mono">HOSTING-WP-STD</td>
+        <td>Gói Hosting WordPress Standard</td>
+        <td class="mono" id="cur-0">250000</td>
+        <td><input type="number" id="price-0" value="250000" step="1000"/></td>
+        <td><button class="save" onclick="save(0)">Lưu thay đổi</button></td>
+      </tr>
+      <tr>
+        <td class="mono">HOSTING-WP-PRO</td>
+        <td>Gói Hosting WordPress Pro</td>
+        <td class="mono" id="cur-1">390000</td>
+        <td><input type="number" id="price-1" value="390000" step="1000"/></td>
+        <td><button class="save" onclick="save(1)">Lưu thay đổi</button></td>
+      </tr>
+      <tr>
+        <td class="mono">HOSTING-WP-BUS</td>
+        <td>Gói Hosting WordPress Business</td>
+        <td class="mono" id="cur-2">590000</td>
+        <td><input type="number" id="price-2" value="590000" step="1000"/></td>
+        <td><button class="save" onclick="save(2)">Lưu thay đổi</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="muted" style="margin-top:14px">
+    Worker chỉ được điền ô <span class="mono">Giá mới</span>. Nút <b>Lưu thay đổi</b> chỉ được click
+    sau khi con người bấm ✅ Duyệt trên Telegram hoặc trên dashboard.
+  </p>
+</main>
+
+<div class="toast" id="toast">Đã lưu giá mới ✅</div>
+
+<script>
+  const NAMES = ['Standard', 'Pro', 'Business'];
+  const SKUS = ['HOSTING-WP-STD', 'HOSTING-WP-PRO', 'HOSTING-WP-BUS'];
+
+  // Sync live prices from backend catalog API on load
+  async function loadCatalog() {
+    try {
+      const res = await fetch('/api/catalog');
+      if (res.ok) {
+        const items = await res.json();
+        items.forEach(it => {
+          const sku = it.product_code;
+          const idx = SKUS.indexOf(sku);
+          if (idx !== -1 && it.our_current_price_vnd) {
+            const curEl = document.getElementById('cur-' + idx);
+            const inputEl = document.getElementById('price-' + idx);
+            if (curEl) curEl.textContent = it.our_current_price_vnd;
+            if (inputEl) inputEl.value = it.our_current_price_vnd;
+          }
+        });
+      }
+    } catch (e) {
+      console.warn('Could not fetch /api/catalog, falling back to default', e);
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    loadCatalog();
+  });
+
+  async function save(i) {
+    const v = document.getElementById('price-' + i).value;
+    const curEl = document.getElementById('cur-' + i);
+    if (curEl) curEl.textContent = v;
+
+    const sku = SKUS[i];
+    try {
+      await fetch('/api/catalog/update', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ product_code: sku, price_vnd: parseInt(v, 10) })
+      });
+    } catch (e) {
+      console.warn('Failed to post catalog update', e);
+    }
+
+    const t = document.getElementById('toast');
+    t.textContent = 'Đã lưu ' + NAMES[i] + ' → ' + Number(v).toLocaleString('vi-VN') + ' VND ✅';
+    t.style.display = 'block';
+    setTimeout(() => t.style.display = 'none', 2500);
+  }
+</script>
+</body>
+</html>

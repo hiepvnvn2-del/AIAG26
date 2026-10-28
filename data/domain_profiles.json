@@ -1,0 +1,38 @@
+{
+  "matbao.net": {
+    "domain": "matbao.net",
+    "engine_preference": "firecrawl",
+    "price_card_selector": ".pricing-plan, .product-item, .price-box",
+    "popup_selectors": [".modal-close", "#close-popup", ".btn-close-banner"],
+    "wait_after_load_ms": 2000,
+    "currency_default": "VND",
+    "notes": "Trang có popup tư vấn tự động sau 3 giây, nên ưu tiên Firecrawl API."
+  },
+  "pavietnam.vn": {
+    "domain": "pavietnam.vn",
+    "engine_preference": "playwright",
+    "price_card_selector": ".card, .price-table-row",
+    "popup_selectors": ["#promoClose", "#promoLater", ".modal-close"],
+    "wait_after_load_ms": 1500,
+    "currency_default": "VND",
+    "notes": "Demo competitor A — có promo modal che toàn màn hình."
+  },
+  "tino.org": {
+    "domain": "tino.org",
+    "engine_preference": "firecrawl",
+    "price_card_selector": ".package-item, .pricing-table",
+    "popup_selectors": [".dialog-close-button"],
+    "wait_after_load_ms": 2000,
+    "currency_default": "VND",
+    "notes": "Hỗ trợ schema JSON-LD cho bảng giá Cloud Hosting."
+  },
+  "hostinger.com": {
+    "domain": "hostinger.com",
+    "engine_preference": "firecrawl",
+    "price_card_selector": ".h-pricing-card, [data-qa='pricing-card']",
+    "popup_selectors": ["#onetrust-accept-btn-handler"],
+    "wait_after_load_ms": 3000,
+    "currency_default": "USD",
+    "notes": "Giá gốc niêm yết bằng USD hoặc tự đổi IP sang VND, có giá gạch ngang chu kỳ đầu."
+  }
+}

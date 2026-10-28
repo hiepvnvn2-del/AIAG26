@@ -1,0 +1,28 @@
+[
+  {
+    "product_code": "HOSTING-WP-STD",
+    "product_name": "Gói Hosting WordPress Standard",
+    "our_current_price_vnd": 350000,
+    "floor_price_vnd": 150000,
+    "category": "Websites",
+    "specs": {
+      "ram": "2GB",
+      "ssd": "20GB",
+      "websites": 1,
+      "bandwidth": "unlimited"
+    }
+  },
+  {
+    "product_code": "HOSTING-WP-BUS",
+    "product_name": "Gói Hosting WordPress Business",
+    "our_current_price_vnd": 590000,
+    "floor_price_vnd": 350000,
+    "category": "Websites",
+    "specs": {
+      "ram": "4GB",
+      "ssd": "50GB",
+      "websites": 5,
+      "bandwidth": "unlimited"
+    }
+  }
+]

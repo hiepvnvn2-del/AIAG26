@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<title>View More — Nút Xem Thêm / Paginated</title>
+<style>
+  body{font-family:system-ui,sans-serif;background:#fff;color:#1e293b;padding:24px}
+  .card{border:1px solid #e2e8f0;border-radius:12px;padding:20px;margin-bottom:12px;max-width:600px}
+  .price{font-size:22px;font-weight:700;color:#0f766e;margin:8px 0}
+  .muted{color:#64748b;font-size:13px}
+  .btn-more{display:block;width:200px;margin:16px auto;padding:12px;background:#2563eb;color:#fff;border:0;border-radius:8px;cursor:pointer;font-size:15px;font-weight:600;text-align:center}
+  .hidden{display:none}
+</style>
+</head>
+<body>
+  <h1>Tất cả gói dịch vụ</h1>
+
+  <!-- Visible initially -->
+  <div class="card">
+    <div><b>Starter</b></div>
+    <div class="price">149.000đ/tháng</div>
+    <div class="muted">1 website · Còn hàng</div>
+  </div>
+  <div class="card">
+    <div><b>Standard</b></div>
+    <div class="price">249.000đ/tháng</div>
+    <div class="muted">5 website · Còn hàng</div>
+  </div>
+  <div class="card">
+    <div><b>Pro</b></div>
+    <div class="price">399.000đ/tháng</div>
+    <div class="muted">10 website · Còn hàng</div>
+  </div>
+
+  <button class="btn-more" id="loadMore" onclick="loadMore()">Xem thêm gói</button>
+
+  <!-- Hidden until "load more" clicked -->
+  <div id="extraPlans" class="hidden">
+    <div class="card">
+      <div><b>Business</b></div>
+      <div class="price">599.000đ/tháng</div>
+      <div class="muted">20 website · Còn hàng</div>
+    </div>
+    <div class="card">
+      <div><b>Enterprise</b></div>
+      <div class="price">1.200.000đ/tháng</div>
+      <div class="muted">Unlimited · Sắp hết</div>
+    </div>
+    <div class="card">
+      <div><b>Dedicated</b></div>
+      <div class="price">3.500.000đ/tháng</div>
+      <div class="muted">Bare metal · Còn hàng</div>
+    </div>
+  </div>
+
+<script>
+  function loadMore() {
+    document.getElementById('extraPlans').classList.remove('hidden');
+    document.getElementById('loadMore').style.display = 'none';
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,1187 @@
+{
+  "timestamp": "2026-10-26T23:16:18.701143",
+  "mode": "mock",
+  "suite": "all",
+  "intent": {
+    "suite": "intent_classification",
+    "total": 62,
+    "correct": 59,
+    "accuracy": 0.9516,
+    "elapsed_sec": 0.06,
+    "details": [
+      {
+        "text": "vậy bây giờ tôi cần chỉnh giá lại cho sản phẩm của tôi như nào",
+        "expected": "PRICE_ADVISORY",
+        "actual": "PRICE_ADVISORY",
+        "confidence": 0.99,
+        "match": true
+      },
+      {
+        "text": "tôi muốn chỉnh sửa giá để phù hợp hãy để xuất cho tôi",
+        "expected": "PRICE_ADVISORY",
+        "actual": "PRICE_ADVISORY",
+        "confidence": 0.99,
+        "match": true
+      },
+      {
+        "text": "tôi muốn chỉnh sửa giá để phù hợp hãy đề xuất cho tôi",
+        "expected": "PRICE_ADVISORY",
+        "actual": "PRICE_ADVISORY",
+        "confidence": 0.99,
+        "match": true
+      },
+      {
+        "text": "giá của tôi cao quá không?",
+        "expected": "PRICE_ADVISORY",
+        "actual": "PRICE_ADVISORY",
+        "confidence": 0.99,
+        "match": true
+      },
+      {
+        "text": "nên giảm bao nhiêu thì hợp lý",
+        "expected": "PRICE_ADVISORY",
+        "actual": "PRICE_ADVISORY",
+        "confidence": 0.99,
+        "match": true
+      },
+      {
+        "text": "đề xuất giá giúp tôi",
+        "expected": "PRICE_ADVISORY",
+        "actual": "PRICE_ADVISORY",
+        "confidence": 0.99,
+        "match": true
+      },
+      {
+        "text": "tôi có nên tăng giá gói business không",
+        "expected": "PRICE_ADVISORY",
+        "actual": "PRICE_ADVISORY",
+        "confidence": 0.99,
+        "match": true
+      },
+      {
+        "text": "so với đối thủ thì tôi thế nào",
+        "expected": "PRICE_ADVISORY",
+        "actual": "PRICE_ADVISORY",
+        "confidence": 0.99,
+        "match": true
+      },
+      {
+        "text": "giá gói standard của shop có cạnh tranh được không",
+        "expected": "PRICE_ADVISORY",
+        "actual": "PRICE_ADVISORY",
+        "confidence": 0.99,
+        "match": true
+      },
+      {
+        "text": "đối thủ rẻ hơn nhiều quá tôi có nên giảm giá theo họ không",
+        "expected": "PRICE_ADVISORY",
+        "actual": "PRICE_ADVISORY",
+        "confidence": 0.99,
+        "match": true
+      },
+      {
+        "text": "tư vấn giá giúp anh",
+        "expected": "PRICE_ADVISORY",
+        "actual": "PRICE_ADVISORY",
+        "confidence": 0.99,
+        "match": true
+      },
+      {
+        "text": "cho tôi xin đề xuất điều chỉnh giá",
+        "expected": "PRICE_ADVISORY",
+        "actual": "PRICE_ADVISORY",
+        "confidence": 0.99,
+        "match": true
+      },
+      {
+        "text": "còn gói business thì sao em?",
+        "expected": "PRICE_ADVISORY",
+        "actual": "PRICE_ADVISORY",
+        "confidence": 0.99,
+        "match": true
+      },
+      {
+        "text": "giá gói này có hợp lý chưa bot",
+        "expected": "PRICE_ADVISORY",
+        "actual": "PRICE_ADVISORY",
+        "confidence": 0.99,
+        "match": true
+      },
+      {
+        "text": "tôi muốn tăng giá dịch vụ thì điều chỉnh thế nào",
+        "expected": "PRICE_ADVISORY",
+        "actual": "PRICE_ADVISORY",
+        "confidence": 0.99,
+        "match": true
+      },
+      {
+        "text": "/catalog",
+        "expected": "SHOW_CATALOG",
+        "actual": "SHOW_CATALOG",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "bảng giá",
+        "expected": "SHOW_CATALOG",
+        "actual": "SHOW_CATALOG",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "xem giá",
+        "expected": "SHOW_CATALOG",
+        "actual": "SHOW_CATALOG",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "giá hiện tại",
+        "expected": "SHOW_CATALOG",
+        "actual": "SHOW_CATALOG",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "danh mục",
+        "expected": "SHOW_CATALOG",
+        "actual": "SHOW_CATALOG",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "xem bảng giá shop",
+        "expected": "SHOW_CATALOG",
+        "actual": "SHOW_CATALOG",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "/run",
+        "expected": "RUN_COMPETITOR_SCAN",
+        "actual": "RUN_COMPETITOR_SCAN",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "quét giá đối thủ",
+        "expected": "RUN_COMPETITOR_SCAN",
+        "actual": "RUN_COMPETITOR_SCAN",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "quét đối thủ",
+        "expected": "RUN_COMPETITOR_SCAN",
+        "actual": "RUN_COMPETITOR_SCAN",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "cào giá đối thủ",
+        "expected": "RUN_COMPETITOR_SCAN",
+        "actual": "RUN_COMPETITOR_SCAN",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "chạy rpa",
+        "expected": "RUN_COMPETITOR_SCAN",
+        "actual": "RUN_COMPETITOR_SCAN",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "quét lại đối thủ cho tôi nhé",
+        "expected": "RUN_COMPETITOR_SCAN",
+        "actual": "RUN_COMPETITOR_SCAN",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "so sánh giá https://www.hostinger.com",
+        "expected": "ANALYZE_URL",
+        "actual": "ANALYZE_URL",
+        "confidence": 0.99,
+        "match": true
+      },
+      {
+        "text": "phân tích giá matbao.net giúp tôi",
+        "expected": "ANALYZE_URL",
+        "actual": "ANALYZE_URL",
+        "confidence": 0.99,
+        "match": true
+      },
+      {
+        "text": "kiểm tra https://tino.org",
+        "expected": "ANALYZE_URL",
+        "actual": "ANALYZE_URL",
+        "confidence": 0.99,
+        "match": true
+      },
+      {
+        "text": "check đối thủ https://pavietnam.vn",
+        "expected": "ANALYZE_URL",
+        "actual": "ANALYZE_URL",
+        "confidence": 0.99,
+        "match": true
+      },
+      {
+        "text": "https://vietnix.vn xem bảng giá",
+        "expected": "ANALYZE_URL",
+        "actual": "SHOW_CATALOG",
+        "confidence": 1.0,
+        "match": false
+      },
+      {
+        "text": "đối thủ đang ở mức giá bao nhiêu vậy",
+        "expected": "QUERY_COMPETITOR_CACHE",
+        "actual": "QUERY_COMPETITOR_CACHE",
+        "confidence": 0.98,
+        "match": true
+      },
+      {
+        "text": "giá đối thủ thế nào rồi bot",
+        "expected": "QUERY_COMPETITOR_CACHE",
+        "actual": "QUERY_COMPETITOR_CACHE",
+        "confidence": 0.98,
+        "match": true
+      },
+      {
+        "text": "đối thủ đang bán bao nhiêu tiền",
+        "expected": "QUERY_COMPETITOR_CACHE",
+        "actual": "QUERY_COMPETITOR_CACHE",
+        "confidence": 0.98,
+        "match": true
+      },
+      {
+        "text": "thị trường đang bán mức giá ra sao",
+        "expected": "QUERY_COMPETITOR_CACHE",
+        "actual": "QUERY_COMPETITOR_CACHE",
+        "confidence": 0.98,
+        "match": true
+      },
+      {
+        "text": "sửa SKU HOSTING-WP-STD thành 180k rồi lưu",
+        "expected": "APPLY_PRICE_CHANGE",
+        "actual": "APPLY_PRICE_CHANGE",
+        "confidence": 0.98,
+        "match": true
+      },
+      {
+        "text": "sửa gói standard thành 190.000đ",
+        "expected": "APPLY_PRICE_CHANGE",
+        "actual": "APPLY_PRICE_CHANGE",
+        "confidence": 0.98,
+        "match": true
+      },
+      {
+        "text": "đặt giá gói business thành 450k",
+        "expected": "APPLY_PRICE_CHANGE",
+        "actual": "APPLY_PRICE_CHANGE",
+        "confidence": 0.98,
+        "match": true
+      },
+      {
+        "text": "áp dụng phương án B",
+        "expected": "APPLY_PRICE_CHANGE",
+        "actual": "APPLY_PRICE_CHANGE",
+        "confidence": 0.98,
+        "match": true
+      },
+      {
+        "text": "chọn phương án 2",
+        "expected": "APPLY_PRICE_CHANGE",
+        "actual": "APPLY_PRICE_CHANGE",
+        "confidence": 0.98,
+        "match": true
+      },
+      {
+        "text": "áp dụng phương án A",
+        "expected": "APPLY_PRICE_CHANGE",
+        "actual": "APPLY_PRICE_CHANGE",
+        "confidence": 0.98,
+        "match": true
+      },
+      {
+        "text": "chọn phương án C",
+        "expected": "APPLY_PRICE_CHANGE",
+        "actual": "APPLY_PRICE_CHANGE",
+        "confidence": 0.98,
+        "match": true
+      },
+      {
+        "text": "ok làm đi",
+        "expected": "APPLY_PRICE_CHANGE",
+        "actual": "APPLY_PRICE_CHANGE",
+        "confidence": 0.95,
+        "match": true
+      },
+      {
+        "text": "triển khai đi em",
+        "expected": "APPLY_PRICE_CHANGE",
+        "actual": "APPLY_PRICE_CHANGE",
+        "confidence": 0.95,
+        "match": true
+      },
+      {
+        "text": "làm đi bot",
+        "expected": "APPLY_PRICE_CHANGE",
+        "actual": "APPLY_PRICE_CHANGE",
+        "confidence": 0.95,
+        "match": true
+      },
+      {
+        "text": "duyệt",
+        "expected": "APPROVE",
+        "actual": "APPROVE",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "đồng ý",
+        "expected": "APPROVE",
+        "actual": "APPROVE",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "xác nhận lưu",
+        "expected": "APPROVE",
+        "actual": "APPROVE",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "ok duyệt",
+        "expected": "APPROVE",
+        "actual": "APPROVE",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "approve",
+        "expected": "APPROVE",
+        "actual": "APPROVE",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "hủy",
+        "expected": "REJECT",
+        "actual": "REJECT",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "hủy bỏ",
+        "expected": "REJECT",
+        "actual": "REJECT",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "cancel",
+        "expected": "REJECT",
+        "actual": "REJECT",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "từ chối",
+        "expected": "REJECT",
+        "actual": "REJECT",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "không duyệt",
+        "expected": "REJECT",
+        "actual": "APPROVE",
+        "confidence": 1.0,
+        "match": false
+      },
+      {
+        "text": "/start",
+        "expected": "GENERAL_CHAT",
+        "actual": "GENERAL_CHAT",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "xin chào, bạn có thể giúp gì cho tôi?",
+        "expected": "GENERAL_CHAT",
+        "actual": "GENERAL_CHAT",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "bot làm được gì",
+        "expected": "GENERAL_CHAT",
+        "actual": "GENERAL_CHAT",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "bạn là ai",
+        "expected": "GENERAL_CHAT",
+        "actual": "GENERAL_CHAT",
+        "confidence": 1.0,
+        "match": true
+      },
+      {
+        "text": "hôm nay trời nắng đẹp ghê",
+        "expected": "UNCLEAR",
+        "actual": "UNCLEAR",
+        "confidence": 0.3,
+        "match": true
+      },
+      {
+        "text": "cho tôi xem menu quán ăn trưa",
+        "expected": "UNCLEAR",
+        "actual": "GENERAL_CHAT",
+        "confidence": 1.0,
+        "match": false
+      }
+    ]
+  },
+  "price": {
+    "total": 54,
+    "price_accuracy": 0.963,
+    "cycle_accuracy": 0.9444,
+    "details": [
+      {
+        "raw": "199k",
+        "expected_vnd": 199000,
+        "got_vnd": 199000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "199.000đ",
+        "expected_vnd": 199000,
+        "got_vnd": 199000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "199,000 VND",
+        "expected_vnd": 199000,
+        "got_vnd": 199000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "199.000 đ/tháng",
+        "expected_vnd": 199000,
+        "got_vnd": 199000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "199k/thang",
+        "expected_vnd": 199000,
+        "got_vnd": 199000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "199000 vnđ",
+        "expected_vnd": 199000,
+        "got_vnd": 199000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "250.000 VNĐ / tháng",
+        "expected_vnd": 250000,
+        "got_vnd": 250000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "590.000 đ / mo",
+        "expected_vnd": 590000,
+        "got_vnd": 590000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "690,000đ/tháng",
+        "expected_vnd": 690000,
+        "got_vnd": 690000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "39k / tháng",
+        "expected_vnd": 39000,
+        "got_vnd": 39000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "1.200.000 đ/tháng",
+        "expected_vnd": 1200000,
+        "got_vnd": 1200000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "2.400.000đ/năm",
+        "expected_vnd": 200000,
+        "got_vnd": 200000,
+        "price_match": true,
+        "expected_cycle": "year",
+        "got_cycle": "year",
+        "cycle_match": true
+      },
+      {
+        "raw": "3.600.000 đ / yr",
+        "expected_vnd": 300000,
+        "got_vnd": 3600000,
+        "price_match": false,
+        "expected_cycle": "year",
+        "got_cycle": "month",
+        "cycle_match": false
+      },
+      {
+        "raw": "1.200k/năm",
+        "expected_vnd": 100000,
+        "got_vnd": 100000,
+        "price_match": true,
+        "expected_cycle": "year",
+        "got_cycle": "year",
+        "cycle_match": true
+      },
+      {
+        "raw": "6.000.000 VND / annual",
+        "expected_vnd": 500000,
+        "got_vnd": 500000,
+        "price_match": true,
+        "expected_cycle": "year",
+        "got_cycle": "year",
+        "cycle_match": true
+      },
+      {
+        "raw": "120.000đ/12 tháng",
+        "expected_vnd": 10000,
+        "got_vnd": 10000,
+        "price_match": true,
+        "expected_cycle": "year",
+        "got_cycle": "year",
+        "cycle_match": true
+      },
+      {
+        "raw": "$8.50",
+        "expected_vnd": 215900,
+        "got_vnd": 215900,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "$8.50/month",
+        "expected_vnd": 215900,
+        "got_vnd": 215900,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "$10/mo",
+        "expected_vnd": 254000,
+        "got_vnd": 254000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "$15.99 / month",
+        "expected_vnd": 406146,
+        "got_vnd": 406146,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "$120 / year",
+        "expected_vnd": 254000,
+        "got_vnd": 3048000,
+        "price_match": false,
+        "expected_cycle": "year",
+        "got_cycle": "month",
+        "cycle_match": false
+      },
+      {
+        "raw": "£15.00",
+        "expected_vnd": 480000,
+        "got_vnd": 480000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "£15.00/month",
+        "expected_vnd": 480000,
+        "got_vnd": 480000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "£25.50/mo",
+        "expected_vnd": 816000,
+        "got_vnd": 816000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "4.990.000đ trọn đời",
+        "expected_vnd": 4990000,
+        "got_vnd": 4990000,
+        "price_match": true,
+        "expected_cycle": "one_time",
+        "got_cycle": "one_time",
+        "cycle_match": true
+      },
+      {
+        "raw": "3.500.000 VND - lifetime",
+        "expected_vnd": 3500000,
+        "got_vnd": 3500000,
+        "price_match": true,
+        "expected_cycle": "one_time",
+        "got_cycle": "one_time",
+        "cycle_match": true
+      },
+      {
+        "raw": "1.500k một lần",
+        "expected_vnd": 1500000,
+        "got_vnd": 1500000,
+        "price_match": true,
+        "expected_cycle": "one_time",
+        "got_cycle": "month",
+        "cycle_match": false
+      },
+      {
+        "raw": "89.000 đ",
+        "expected_vnd": 89000,
+        "got_vnd": 89000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "45.000đ",
+        "expected_vnd": 45000,
+        "got_vnd": 45000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "150k",
+        "expected_vnd": 150000,
+        "got_vnd": 150000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "350k",
+        "expected_vnd": 350000,
+        "got_vnd": 350000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "750.000 dong",
+        "expected_vnd": 750000,
+        "got_vnd": 750000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "1500000 đ",
+        "expected_vnd": 1500000,
+        "got_vnd": 1500000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "2.500.000 VND",
+        "expected_vnd": 2500000,
+        "got_vnd": 2500000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "99k / mo",
+        "expected_vnd": 99000,
+        "got_vnd": 99000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "149.000 đ/tháng",
+        "expected_vnd": 149000,
+        "got_vnd": 149000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "299.000 đ/tháng",
+        "expected_vnd": 299000,
+        "got_vnd": 299000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "499k/tháng",
+        "expected_vnd": 499000,
+        "got_vnd": 499000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "799.000 đ/tháng",
+        "expected_vnd": 799000,
+        "got_vnd": 799000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "999.000đ",
+        "expected_vnd": 999000,
+        "got_vnd": 999000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "1.490.000 đ / tháng",
+        "expected_vnd": 1490000,
+        "got_vnd": 1490000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "2.990.000 đ/tháng",
+        "expected_vnd": 2990000,
+        "got_vnd": 2990000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "12.000.000đ/năm",
+        "expected_vnd": 1000000,
+        "got_vnd": 1000000,
+        "price_match": true,
+        "expected_cycle": "year",
+        "got_cycle": "year",
+        "cycle_match": true
+      },
+      {
+        "raw": "18.000.000 đ/year",
+        "expected_vnd": 1500000,
+        "got_vnd": 1500000,
+        "price_match": true,
+        "expected_cycle": "year",
+        "got_cycle": "year",
+        "cycle_match": true
+      },
+      {
+        "raw": "24.000.000đ / annual",
+        "expected_vnd": 2000000,
+        "got_vnd": 2000000,
+        "price_match": true,
+        "expected_cycle": "year",
+        "got_cycle": "year",
+        "cycle_match": true
+      },
+      {
+        "raw": "$2.99/mo",
+        "expected_vnd": 75946,
+        "got_vnd": 75946,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "$4.99/mo",
+        "expected_vnd": 126746,
+        "got_vnd": 126746,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "$9.99/mo",
+        "expected_vnd": 253746,
+        "got_vnd": 253746,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "$19.99/mo",
+        "expected_vnd": 507746,
+        "got_vnd": 507745,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "$49.00/mo",
+        "expected_vnd": 1244600,
+        "got_vnd": 1244600,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "£5.00/month",
+        "expected_vnd": 160000,
+        "got_vnd": 160000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "£9.99/month",
+        "expected_vnd": 319680,
+        "got_vnd": 319680,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "£19.99/mo",
+        "expected_vnd": 639680,
+        "got_vnd": 639680,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      },
+      {
+        "raw": "£50.00/month",
+        "expected_vnd": 1600000,
+        "got_vnd": 1600000,
+        "price_match": true,
+        "expected_cycle": "month",
+        "got_cycle": "month",
+        "cycle_match": true
+      }
+    ],
+    "suite": "price_normalization",
+    "elapsed_sec": 0.0
+  },
+  "matching": {
+    "suite": "catalog_matching",
+    "total": 6,
+    "correct": 6,
+    "accuracy": 1.0,
+    "elapsed_sec": 0.0,
+    "details": [
+      {
+        "product_name": "Hosting WordPress Standard",
+        "expected_sku": "HOSTING-WP-STD",
+        "got_sku": "HOSTING-WP-STD",
+        "sku_match": true,
+        "confidence": 1.0,
+        "min_confidence": 0.8,
+        "conf_ok": true,
+        "passed": true,
+        "note": "Khớp phân khúc Standard/Starter; Cấu hình RAM & SSD tương đương"
+      },
+      {
+        "product_name": "Gói Starter Cơ Bản",
+        "expected_sku": "HOSTING-WP-STD",
+        "got_sku": "HOSTING-WP-STD",
+        "sku_match": true,
+        "confidence": 1.0,
+        "min_confidence": 0.7,
+        "conf_ok": true,
+        "passed": true,
+        "note": "Khớp phân khúc Standard/Starter; Cấu hình RAM & SSD tương đương"
+      },
+      {
+        "product_name": "Cloud Hosting Business Pro",
+        "expected_sku": "HOSTING-WP-BUS",
+        "got_sku": "HOSTING-WP-BUS",
+        "sku_match": true,
+        "confidence": 1.0,
+        "min_confidence": 0.8,
+        "conf_ok": true,
+        "passed": true,
+        "note": "Khớp phân khúc Business/Pro/Enterprise; Cấu hình RAM & SSD tương đương"
+      },
+      {
+        "product_name": "Gói Enterprise Doanh Nghiệp Cấp Cao",
+        "expected_sku": "HOSTING-WP-BUS",
+        "got_sku": "HOSTING-WP-BUS",
+        "sku_match": true,
+        "confidence": 1.0,
+        "min_confidence": 0.7,
+        "conf_ok": true,
+        "passed": true,
+        "note": "Khớp phân khúc Business/Pro/Enterprise; Cấu hình RAM & SSD tương đương"
+      },
+      {
+        "product_name": "Gói Tiêu Chuẩn 1",
+        "expected_sku": "HOSTING-WP-STD",
+        "got_sku": "HOSTING-WP-STD",
+        "sku_match": true,
+        "confidence": 0.8,
+        "min_confidence": 0.5,
+        "conf_ok": true,
+        "passed": true,
+        "note": "Khớp phân khúc Standard/Starter"
+      },
+      {
+        "product_name": "Gói Cao Cấp 3",
+        "expected_sku": "HOSTING-WP-BUS",
+        "got_sku": "HOSTING-WP-BUS",
+        "sku_match": true,
+        "confidence": 0.8,
+        "min_confidence": 0.5,
+        "conf_ok": true,
+        "passed": true,
+        "note": "Khớp phân khúc Business/Pro/Enterprise"
+      }
+    ]
+  },
+  "golden_pages": {
+    "suite": "golden_pages",
+    "total": 17,
+    "passed": 17,
+    "accuracy": 1.0,
+    "elapsed_sec": 0.0,
+    "details": [
+      {
+        "page_id": "01_popup_modal",
+        "file": "01_popup_modal.html",
+        "exists": true,
+        "size_bytes": 2873,
+        "expected_status": "SUCCESS",
+        "injection_safe": true,
+        "passed": true
+      },
+      {
+        "page_id": "02_multicurrency",
+        "file": "02_multicurrency.html",
+        "exists": true,
+        "size_bytes": 1546,
+        "expected_status": "SUCCESS",
+        "injection_safe": true,
+        "passed": true
+      },
+      {
+        "page_id": "03_yearly_monthly",
+        "file": "03_yearly_monthly.html",
+        "exists": true,
+        "size_bytes": 2223,
+        "expected_status": "SUCCESS",
+        "injection_safe": true,
+        "passed": true
+      },
+      {
+        "page_id": "04_strikethrough_promo",
+        "file": "04_strikethrough_promo.html",
+        "exists": true,
+        "size_bytes": 1807,
+        "expected_status": "SUCCESS",
+        "injection_safe": true,
+        "passed": true
+      },
+      {
+        "page_id": "05_contact_price",
+        "file": "05_contact_price.html",
+        "exists": true,
+        "size_bytes": 1368,
+        "expected_status": "SUCCESS",
+        "injection_safe": true,
+        "passed": true
+      },
+      {
+        "page_id": "06_stock_status",
+        "file": "06_stock_status.html",
+        "exists": true,
+        "size_bytes": 1995,
+        "expected_status": "SUCCESS",
+        "injection_safe": true,
+        "passed": true
+      },
+      {
+        "page_id": "07_login_required",
+        "file": "07_login_required.html",
+        "exists": true,
+        "size_bytes": 1238,
+        "expected_status": "AUTH_REQUIRED",
+        "injection_safe": true,
+        "passed": true
+      },
+      {
+        "page_id": "08_empty_page",
+        "file": "08_empty_page.html",
+        "exists": true,
+        "size_bytes": 402,
+        "expected_status": "EMPTY",
+        "injection_safe": true,
+        "passed": true
+      },
+      {
+        "page_id": "09_error_403",
+        "file": "09_error_403.html",
+        "exists": true,
+        "size_bytes": 654,
+        "expected_status": "BLOCKED",
+        "injection_safe": true,
+        "passed": true
+      },
+      {
+        "page_id": "10_injection_text",
+        "file": "10_injection_text.html",
+        "exists": true,
+        "size_bytes": 1419,
+        "expected_status": "SUCCESS",
+        "injection_safe": true,
+        "passed": true
+      },
+      {
+        "page_id": "11_injection_hidden",
+        "file": "11_injection_hidden.html",
+        "exists": true,
+        "size_bytes": 1785,
+        "expected_status": "SUCCESS",
+        "injection_safe": true,
+        "passed": true
+      },
+      {
+        "page_id": "12_injection_comment",
+        "file": "12_injection_comment.html",
+        "exists": true,
+        "size_bytes": 1299,
+        "expected_status": "SUCCESS",
+        "injection_safe": true,
+        "passed": true
+      },
+      {
+        "page_id": "13_json_ld_page",
+        "file": "13_json_ld_page.html",
+        "exists": true,
+        "size_bytes": 2422,
+        "expected_status": "SUCCESS",
+        "injection_safe": true,
+        "passed": true
+      },
+      {
+        "page_id": "14_dom_only",
+        "file": "14_dom_only.html",
+        "exists": true,
+        "size_bytes": 2110,
+        "expected_status": "SUCCESS",
+        "injection_safe": true,
+        "passed": true
+      },
+      {
+        "page_id": "15_view_more",
+        "file": "15_view_more.html",
+        "exists": true,
+        "size_bytes": 2100,
+        "expected_status": "SUCCESS",
+        "injection_safe": true,
+        "passed": true
+      },
+      {
+        "page_id": "16_infinite_scroll",
+        "file": "16_infinite_scroll.html",
+        "exists": true,
+        "size_bytes": 2500,
+        "expected_status": "SUCCESS",
+        "injection_safe": true,
+        "passed": true
+      },
+      {
+        "page_id": "17_tabs_and_toggles",
+        "file": "17_tabs_and_toggles.html",
+        "exists": true,
+        "size_bytes": 8003,
+        "expected_status": "SUCCESS",
+        "injection_safe": true,
+        "passed": true
+      }
+    ]
+  },
+  "summary": {
+    "intent_acc": "95.2%",
+    "price_acc": "96.3%",
+    "cycle_acc": "94.4%",
+    "matching_acc": "100.0%",
+    "golden_pages_acc": "100.0%"
+  }
+}

@@ -1,0 +1,40 @@
+[
+  {
+    "config_name": "1. Full Baseline (All Enabled)",
+    "overrides": {},
+    "price_accuracy": 0.963,
+    "matching_accuracy": 1.0,
+    "golden_pages_accuracy": 1.0,
+    "elapsed_sec": 0.01
+  },
+  {
+    "config_name": "2. Without Self-Healing",
+    "overrides": {
+      "enable_self_healing": false
+    },
+    "price_accuracy": 0.963,
+    "matching_accuracy": 1.0,
+    "golden_pages_accuracy": 0.875,
+    "elapsed_sec": 0.0
+  },
+  {
+    "config_name": "3. Without JSON-LD",
+    "overrides": {
+      "enable_json_ld": false
+    },
+    "price_accuracy": 0.963,
+    "matching_accuracy": 1.0,
+    "golden_pages_accuracy": 0.9375,
+    "elapsed_sec": 0.0
+  },
+  {
+    "config_name": "4. Without Few-Shot",
+    "overrides": {
+      "enable_few_shot": false
+    },
+    "price_accuracy": 0.883,
+    "matching_accuracy": 1.0,
+    "golden_pages_accuracy": 1.0,
+    "elapsed_sec": 0.0
+  }
+]

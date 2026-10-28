@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<title>Infinite Scroll / Pagination</title>
+<style>
+  body{font-family:system-ui,sans-serif;background:#f8fafc;color:#1e293b;padding:24px}
+  .card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:18px;margin-bottom:12px;max-width:600px}
+  .price{font-size:22px;font-weight:700;color:#0f766e;margin:6px 0}
+  .muted{color:#64748b;font-size:13px}
+  .pagination{display:flex;gap:8px;margin-top:16px}
+  .page-btn{padding:8px 14px;border:1px solid #e2e8f0;border-radius:8px;cursor:pointer;background:#fff}
+  .page-btn.active{background:#2563eb;color:#fff;border-color:#2563eb}
+  #page2,#page3{display:none}
+</style>
+</head>
+<body>
+  <h1>Bảng giá (trang 1/3)</h1>
+
+  <div id="page1">
+    <div class="card"><div><b>Nano</b></div><div class="price">69.000đ/tháng</div><div class="muted">512MB RAM · Còn hàng</div></div>
+    <div class="card"><div><b>Micro</b></div><div class="price">99.000đ/tháng</div><div class="muted">1GB RAM · Còn hàng</div></div>
+    <div class="card"><div><b>Small</b></div><div class="price">149.000đ/tháng</div><div class="muted">2GB RAM · Còn hàng</div></div>
+  </div>
+
+  <div id="page2">
+    <div class="card"><div><b>Medium</b></div><div class="price">299.000đ/tháng</div><div class="muted">4GB RAM · Còn hàng</div></div>
+    <div class="card"><div><b>Large</b></div><div class="price">499.000đ/tháng</div><div class="muted">8GB RAM · Còn hàng</div></div>
+    <div class="card"><div><b>XLarge</b></div><div class="price">899.000đ/tháng</div><div class="muted">16GB RAM · Sắp hết</div></div>
+  </div>
+
+  <div id="page3">
+    <div class="card"><div><b>2XL</b></div><div class="price">1.690.000đ/tháng</div><div class="muted">32GB RAM · Còn hàng</div></div>
+    <div class="card"><div><b>Dedicated</b></div><div class="price">4.500.000đ/tháng</div><div class="muted">64GB RAM · Hết hàng</div></div>
+  </div>
+
+  <div class="pagination">
+    <button class="page-btn active" onclick="showPage(1)">1</button>
+    <button class="page-btn" onclick="showPage(2)">2</button>
+    <button class="page-btn" onclick="showPage(3)">3</button>
+  </div>
+
+<script>
+  function showPage(n) {
+    ['page1','page2','page3'].forEach((id,i) => {
+      document.getElementById(id).style.display = i+1===n ? 'block' : 'none';
+    });
+    document.querySelectorAll('.page-btn').forEach((b,i) => {
+      b.classList.toggle('active', i+1===n);
+    });
+  }
+</script>
+</body>
+</html>
