@@ -149,7 +149,7 @@ class BrowserWorker:
     # ------------------------------------------------------------------ loop
     async def run(self) -> list[dict]:
         await self.start()
-        should_stop = True
+        should_stop = not self.park_on_hitl
         try:
             while self._step < MAX_STEPS:
                 self._step += 1
@@ -160,13 +160,7 @@ class BrowserWorker:
                     self.extracted.extend(turn.extracted_payload)
                     await self._emit("extracted", {"count": len(turn.extracted_payload)})
 
-                if turn.action_type in ("FAIL", "EXTRACT_DATA"):
-                    break
-
-                if turn.action_type == "REQUEST_HITL_APPROVAL":
-                    if self.park_on_hitl:
-                        # Keep Playwright open; caller is responsible for stopping or committing
-                        should_stop = False
+                if turn.action_type in ("FAIL", "EXTRACT_DATA", "REQUEST_HITL_APPROVAL"):
                     break
         finally:
             if should_stop:
@@ -361,8 +355,12 @@ class BrowserWorker:
         new_price: Optional[int] = None,
     ) -> dict:
         """Executed upon HITL APPROVAL: clicks the final submit button on the live page."""
-        assert self.page is not None
+        if not self.page:
+            log.warning("[%s] Browser page is None in commit_submit. Re-starting browser context...", self.worker_id)
+            await self.start()
+
         page = self.page
+        assert page is not None
 
         # Ensure the target input has the correct price filled before submitting
         if product_code and new_price:
@@ -417,8 +415,12 @@ class BrowserWorker:
 
     async def override_and_submit(self, new_price: int, product_code: str = "HOSTING-WP-STD") -> dict:
         """Update price input with custom admin override value, then click Submit on live page."""
-        assert self.page is not None
+        if not self.page:
+            log.warning("[%s] Browser page is None in override_and_submit. Re-starting...", self.worker_id)
+            await self.start()
+
         page = self.page
+        assert page is not None
 
         idx_map = {
             "HOSTING-WP-STD": "price-0",

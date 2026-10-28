@@ -246,18 +246,22 @@ class Orchestrator:
 
             if decision_res == "APPROVE":
                 log.info("[%s] HITL Approved! Submitting live form via Playwright...", self.workflow_id)
-                commit_info = await worker.commit_submit(
-                    target_button_text="Lưu thay đổi",
-                    product_code=target_code,
-                    new_price=new_price,
-                )
-                
+                commit_info = {}
+                try:
+                    commit_info = await worker.commit_submit(
+                        target_button_text="Lưu thay đổi",
+                        product_code=target_code,
+                        new_price=new_price,
+                    )
+                except Exception as ex:
+                    log.error("[%s] Error in commit_submit: %s", self.workflow_id, ex, exc_info=True)
+
                 # Update persistent catalog so /catalog immediately reflects the new price
                 update_catalog_price(target_code, new_price)
 
                 await bus.publish(
                     "mutation_executed",
-                    {"updates": updates, "screenshot_b64": commit_info.get("screenshot_b64")},
+                    {"updates": updates, "screenshot_b64": commit_info.get("screenshot_b64") if isinstance(commit_info, dict) else ""},
                     workflow_id=self.workflow_id,
                 )
                 try:
@@ -270,7 +274,7 @@ class Orchestrator:
                         f"• Giá niêm yết mới: <code>{new_price:,} VND/tháng</code>\n\n"
                         f"🎉 <i>Playwright đã bấm 'Lưu thay đổi' trên trang Admin. Bảng giá shop (/catalog) đã cập nhật giá mới ngay lập tức!</i>"
                     )
-                    b64_img = commit_info.get("screenshot_b64")
+                    b64_img = commit_info.get("screenshot_b64") if isinstance(commit_info, dict) else ""
                     if b64_img:
                         await send_telegram_photo(caption=confirm_text, photo_bytes=base64.b64decode(b64_img))
                     else:
@@ -281,8 +285,12 @@ class Orchestrator:
             elif isinstance(decision_res, dict) and decision_res.get("decision") == "OVERRIDE":
                 override_price = decision_res.get("override_price", new_price)
                 log.info("[%s] Admin override price to %s VND! Submitting...", self.workflow_id, override_price)
-                commit_info = await worker.override_and_submit(new_price=override_price, product_code=target_code)
-                
+                commit_info = {}
+                try:
+                    commit_info = await worker.override_and_submit(new_price=override_price, product_code=target_code)
+                except Exception as ex:
+                    log.error("[%s] Error in override_and_submit: %s", self.workflow_id, ex, exc_info=True)
+
                 # Update persistent catalog
                 update_catalog_price(target_code, override_price)
 
