@@ -14,9 +14,9 @@ WORKER_FEW_SHOTS: list[dict] = [
         "observation": "Màn hình bị lớp phủ mờ (modal-bg) che khuất bởi thông báo cookie với nút 'Đồng ý' (id=acceptCookie) và nút đóng (id=closeBanner).",
         "agent_turn": {
             "thought": "Phát hiện banner cookie che khuất toàn bộ giao diện bảng giá. Cần đóng banner trước khi cào dữ liệu.",
-            "action": "CLICK",
+            "action_type": "CLICK",
             "target_element_id": "acceptCookie",
-            "value": None,
+            "input_text": None,
         },
     },
     {
@@ -24,9 +24,9 @@ WORKER_FEW_SHOTS: list[dict] = [
         "observation": "Đã điền xong giá mới 180.000đ vào ô nhập giá (id=priceInput). Nút 'Lưu thay đổi' (id=saveBtn) hiển thị sẵn sàng.",
         "agent_turn": {
             "thought": "Đã điền giá mới vào form admin. Đây là thao tác thay đổi dữ liệu nhạy cảm, tuyệt đối không bấm Lưu mà phải yêu cầu con người phê duyệt.",
-            "action": "REQUEST_HITL_APPROVAL",
+            "action_type": "REQUEST_HITL_APPROVAL",
             "target_element_id": "saveBtn",
-            "value": None,
+            "input_text": None,
         },
     },
     {
@@ -34,9 +34,9 @@ WORKER_FEW_SHOTS: list[dict] = [
         "observation": "Bảng giá chỉ hiển thị 3 gói đầu. Cuối danh sách có nút 'Xem thêm gói' (id=loadMore).",
         "agent_turn": {
             "thought": "Chưa hiển thị hết các gói hosting theo yêu cầu. Bấm nút xem thêm để mở rộng dữ liệu.",
-            "action": "CLICK",
+            "action_type": "CLICK",
             "target_element_id": "loadMore",
-            "value": None,
+            "input_text": None,
         },
     },
     {

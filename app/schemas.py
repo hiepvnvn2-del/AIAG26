@@ -57,10 +57,32 @@ class WorkflowDAG(BaseModel):
 class AgentTurn(BaseModel):
     thought: str
     self_healing_triggered: bool = False
-    action_type: Literal["CLICK", "TYPE", "PRESS_KEY", "SCROLL_DOWN", "WAIT", "EXTRACT_DATA", "REQUEST_HITL_APPROVAL", "FAIL"]
+    action_type: Literal["CLICK", "TYPE", "PRESS_KEY", "SCROLL_DOWN", "WAIT", "EXTRACT_DATA", "REQUEST_HITL_APPROVAL", "FAIL"] = "WAIT"
     target_element_id: Optional[int] = None
     input_text: Optional[str] = None
     extracted_payload: list[dict] = Field(default_factory=list)
+
+    @model_validator(mode="before")
+    @classmethod
+    def normalize_turn_data(cls, data: Any) -> Any:
+        if isinstance(data, dict):
+            # Normalize action field alias
+            if "action" in data and "action_type" not in data:
+                data["action_type"] = data["action"]
+            if "value" in data and "input_text" not in data:
+                data["input_text"] = data["value"]
+            if "action_type" in data and isinstance(data["action_type"], str):
+                act = data["action_type"].upper().strip()
+                valid_acts = {"CLICK", "TYPE", "PRESS_KEY", "SCROLL_DOWN", "WAIT", "EXTRACT_DATA", "REQUEST_HITL_APPROVAL", "FAIL"}
+                if act in valid_acts:
+                    data["action_type"] = act
+                elif act in ("EXTRACT", "EXTRACT_PRODUCTS", "EXTRACT_TABLE"):
+                    data["action_type"] = "EXTRACT_DATA"
+                elif act in ("APPROVAL", "HITL", "REQUEST_APPROVAL", "REQUEST_HITL"):
+                    data["action_type"] = "REQUEST_HITL_APPROVAL"
+                else:
+                    data["action_type"] = "WAIT"
+        return data
 
 # --- Normalizer ---
 class CompetitorEntry(BaseModel):

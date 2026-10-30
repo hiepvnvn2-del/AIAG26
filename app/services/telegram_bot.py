@@ -483,19 +483,44 @@ async def _run_workflow_background(instruction: str, chat_id: str) -> None:
         LATEST_SCAN_RESULT = norm
         memory.set_scan_result(chat_id, norm)
 
+        summary = norm.get("analysis_summary_vn", "")
+        lines = [
+            "📊 <b>KẾT QUẢ ĐỐI SOÁT GIÁ RPA 2.0</b>\n",
+            f"{html.escape(summary)}\n",
+        ]
+        for row in table:
+            lines.append(f"• <b>{html.escape(row.get('product_name', ''))}</b>:")
+            lines.append(f"  Giá shop: <code>{row.get('our_current_price_vnd', 0):,} VND</code>")
+            for c in row.get("competitors", []):
+                diff_val = c.get("diff_percentage", 0.0)
+                diff_str = f"{diff_val:+.1f}%" if diff_val else "0%"
+                lines.append(f"  - {html.escape(c.get('source', ''))}: <code>{c.get('normalized_price_vnd', 0):,} VND</code> ({c.get('stock_status', '')}) [Chênh lệch: {diff_str}]")
+
         if not flagged:
-            summary = norm.get("analysis_summary_vn", "")
-            lines = [
-                "📊 <b>KẾT QUẢ ĐỐI SOÁT GIÁ RPA 2.0</b>\n",
-                f"{html.escape(summary)}\n",
-            ]
-            for row in table:
-                lines.append(f"• <b>{html.escape(row.get('product_name', ''))}</b>:")
-                lines.append(f"  Giá shop: <code>{row.get('our_current_price_vnd', 0):,} VND</code>")
-                for c in row.get("competitors", []):
-                    lines.append(f"  - {html.escape(c.get('source', ''))}: <code>{c.get('normalized_price_vnd', 0):,} VND</code> ({c.get('stock_status', '')})")
             lines.append("\n✅ <i>Không có đối thủ nào rẻ hơn ngưỡng 10% (hoặc hết hàng). Giá của shop hiện tại vẫn đang rất tối ưu!</i>")
             await send_telegram_text("\n".join(lines), chat_id=chat_id)
+        else:
+            lines.append(f"\n⚠️ <b>Phát hiện {len(flagged)} sản phẩm có đối thủ rẻ hơn vượt ngưỡng 10%!</b>")
+            for f_item in flagged:
+                lines.append(f"👉 <b>{html.escape(f_item.get('product_name', ''))}</b>: {html.escape(f_item.get('reason_vn', ''))}")
+                if f_item.get("recommended_new_price_vnd"):
+                    lines.append(f"   💡 Đề xuất giá cạnh tranh: <code>{f_item.get('recommended_new_price_vnd'):,} VND</code>")
+
+            mutation_res = result.get("mutation")
+            if mutation_res and mutation_res.get("decision") in ("APPROVE", "OVERRIDE_APPROVE"):
+                lines.append("\n🎉 <i>Đã hoàn tất cập nhật giá lên trang Admin theo lệnh phê duyệt!</i>")
+            elif hitl_gate.pending_approvals:
+                lines.append("\n🛡️ <i>Phiên phê duyệt HITL đã sẵn sàng. Vui lòng xem ảnh chụp màn hình và bấm nút duyệt bên dưới!</i>")
+            else:
+                lines.append("\n💡 <i>Mức chênh lệch lớn (>30%). Để bảo vệ an toàn biên lợi nhuận, bạn hãy bấm nút <b>'Tư vấn điều chỉnh giá'</b> bên dưới để AI đưa ra các phương án tối ưu nhất!</i>")
+
+            markup = {
+                "inline_keyboard": [
+                    [{"text": "💡 Tư vấn điều chỉnh giá", "callback_data": "ADVISORY_ACTION"}],
+                    [{"text": "📋 Xem bảng giá shop", "callback_data": "SHOW_CATALOG_ACTION"}],
+                ]
+            }
+            await send_telegram_text("\n".join(lines), reply_markup=markup, chat_id=chat_id)
     except Exception as exc:
         log.exception("Background workflow failed")
         await send_telegram_text(
