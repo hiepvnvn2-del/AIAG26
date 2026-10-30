@@ -71,7 +71,7 @@ async def scrape_with_firecrawl(
         return []
 
     # Truncate markdown to avoid hitting LLM context ceiling
-    truncated_md = markdown[:28000]
+    truncated_md = markdown[:12000]
 
     prompt = (
         f"MỤC TIÊU: {goal}\n"

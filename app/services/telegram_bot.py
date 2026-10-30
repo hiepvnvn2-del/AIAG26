@@ -303,8 +303,8 @@ async def handle_telegram_message(msg: dict) -> None:
         await send_telegram_text(
             f"🚀 <b>ĐÃ KHỞI CHẠY QUY TRÌNH RPA 2.0!</b>\n\n"
             f"📝 <b>Yêu cầu:</b> <i>{html.escape(text)}</i>\n\n"
-            f"⚙️ <i>Hệ thống đang mở song song các trình duyệt Chromium, trích xuất dữ liệu và vượt qua popup. "
-            f"Kết quả sẽ được gửi về đây sau ít giây...</i>",
+            f"⚡ <i>Hệ thống sử dụng Firecrawl API đám mây kết hợp Browser Workers để bóc tách bảng giá và vượt vật cản. "
+            f"Kết quả đối soát sẽ gửi về đây sau ít giây...</i>",
             chat_id=chat_id,
         )
         asyncio.create_task(_run_workflow_background(instruction, chat_id))

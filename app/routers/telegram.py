@@ -43,7 +43,7 @@ async def _handle_callback(cb: dict) -> None:
     if data == "RUN_DEFAULT_WORKFLOW":
         await telegram_bot.send_telegram_text(
             "🚀 <b>Đang kích hoạt quy trình quét giá đối thủ...</b>\n"
-            "Vui lòng đợi vài giây để các Browser Workers cào dữ liệu.",
+            "Hệ thống đang kết hợp Firecrawl API và Agent Workers để cào dữ liệu nhanh chóng.",
             chat_id=chat_id,
         )
         asyncio.create_task(

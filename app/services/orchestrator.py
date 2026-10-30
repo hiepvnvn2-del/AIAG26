@@ -133,6 +133,33 @@ class Orchestrator:
 
     # ------------------------------------------------------- parallel phase
     async def _run_worker(self, task: WorkerTask) -> list[dict]:
+        # Priority 1: Cloud Firecrawl API for public target websites
+        url = task.start_url.strip()
+        is_public = url.startswith("http://") or url.startswith("https://")
+        is_local_demo = "127.0.0.1" in url or "localhost" in url or "demo/" in url
+        
+        if settings.firecrawl_api_key.strip() and is_public and not is_local_demo:
+            try:
+                log.info("[%s] Scraping target via Firecrawl API: %s", task.worker_id, url)
+                products = await scrape_with_firecrawl(url, goal=task.goal)
+                if products:
+                    out = []
+                    for p in products:
+                        item = {
+                            "product_code": p.specs.get("sku") if isinstance(p.specs, dict) else None,
+                            "product_name": p.name,
+                            "price_vnd": p.price_vnd,
+                            "price_raw": p.raw_price_text,
+                            "billing_cycle": p.billing_cycle,
+                            "stock_status": p.stock,
+                            "source": task.target_name,
+                        }
+                        out.append(item)
+                    return out
+            except Exception as fc_err:
+                log.warning("[%s] Firecrawl failed (%s), falling back to local BrowserWorker...", task.worker_id, fc_err)
+
+        # Priority 2 / Local fallback: BrowserWorker (Playwright)
         worker = BrowserWorker(
             worker_id=task.worker_id,
             target_name=task.target_name,
