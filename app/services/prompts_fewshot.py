@@ -39,6 +39,28 @@ WORKER_FEW_SHOTS: list[dict] = [
             "value": None,
         },
     },
+    {
+        "scenario": "Extract Products and Pricing Table",
+        "observation": "Trang web hiển thị danh sách các thẻ sản phẩm kèm tên gói và giá niêm yết rõ ràng.",
+        "agent_turn": {
+            "thought": "Đã tải xong toàn bộ danh sách gói dịch vụ. Trích xuất đầy đủ tên gói, mã sản phẩm và giá tiền vào danh sách.",
+            "action_type": "EXTRACT_DATA",
+            "extracted_payload": [
+                {
+                    "product_code": "HOSTING-WP-STD",
+                    "product_name": "Hosting WordPress Standard",
+                    "price_raw": "199.000đ/tháng",
+                    "stock_status_raw": "Còn hàng"
+                },
+                {
+                    "product_code": "HOSTING-WP-BUS",
+                    "product_name": "Hosting WordPress Business",
+                    "price_raw": "199k/tháng",
+                    "stock_status_raw": "Sắp hết"
+                }
+            ]
+        },
+    },
 ]
 
 # ---------------------------------------------------------------------------

@@ -72,7 +72,11 @@
       '[class*="price"]',
       '[class*="badge"]',
       '[class*="status"]',
-      '[data-code]'
+      '[data-code]',
+      '.card b',
+      '.pricing-card b',
+      '[class*="title"]',
+      '[class*="plan-name"]'
     ].join(', ');
 
     const raw = Array.from(document.querySelectorAll(q));

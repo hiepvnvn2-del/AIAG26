@@ -185,16 +185,16 @@ def _deterministic_normalize(
         competitors: list[CompetitorEntry] = []
         for ext in raw_extractions:
             # Match by product code or name similarity
-            ext_code = (ext.get("product_code") or "").strip()
-            ext_name = (ext.get("product_name") or "").strip()
+            ext_code = str(ext.get("product_code") or "").strip()
+            ext_name = str(ext.get("product_name") or ext.get("name") or "").strip()
 
             # Flexible match by code or name
             matched = False
             if ext_code and ext_code.lower() == code.lower():
                 matched = True
-            elif "standard" in name.lower() and "standard" in ext_name.lower():
+            elif "standard" in name.lower() and any(w in ext_name.lower() for w in ("standard", "tiêu chuẩn", "cơ bản", "gói 1")):
                 matched = True
-            elif "business" in name.lower() and "business" in ext_name.lower():
+            elif "business" in name.lower() and any(w in ext_name.lower() for w in ("business", "doanh nghiệp", "pro", "cao cấp", "gói 2", "gói 3")):
                 matched = True
             elif ext_name and (ext_name.lower() in name.lower() or name.lower() in ext_name.lower()):
                 matched = True
